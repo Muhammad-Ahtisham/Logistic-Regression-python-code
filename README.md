@@ -1,7 +1,5 @@
 # Logistic-Regression-python-code
 
-# Logistic Regression with Gradient Descent
-
 ## 1. Importing Libraries
 
 ```python
@@ -12,8 +10,6 @@ matplotlib.pyplot: A plotting library used to create visualizations. Here, it’
 ```
 ## 2. Sigmoid Function
 ```python
-Copy
-Edit
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
 ```
@@ -22,8 +18,6 @@ It maps any input value to a range between 0 and 1, making it useful for binary 
 The function returns the sigmoid of z, which is calculated as 1 / (1 + e^(-z)), where e is the base of the natural logarithm.
 ## 3. Cost Function (Binary Cross-Entropy Loss)
 ```python
-Copy
-Edit
 def compute_cost(X, y, weights):
     m = len(y)  # Number of data points
     predictions = sigmoid(np.dot(X, weights))  # Predicted values (probabilities)
@@ -40,8 +34,6 @@ For each example, it calculates y * log(prediction) + (1 - y) * log(1 - predicti
 The formula penalizes wrong predictions more heavily than correct ones.
 ## 4. Gradient Descent
 ```python
-Copy
-Edit
 def gradient_descent(X, y, weights, learning_rate, epochs):
     m = len(y)
     cost_history = []
@@ -70,8 +62,6 @@ Weights are updated using the gradient: weights -= learning_rate * gradient.
 The cost for each epoch is calculated and stored in cost_history for visualization later.
 ## 5. Logistic Regression Function
 ```python
-Copy
-Edit
 def logistic_regression(X, y, learning_rate=0.01, epochs=1000):
     # Add a column of ones for the intercept term (bias)
     X = np.c_[np.ones(X.shape[0]), X]
@@ -91,8 +81,6 @@ The gradient descent function is called to update the weights and minimize the c
 The function returns the learned weights and the history of the cost function over the epochs.
 ## 6. Prediction Function
 ```python
-Copy
-Edit
 def predict(X, weights):
     # Add a column of ones for the intercept term (bias)
     X = np.c_[np.ones(X.shape[0]), X]
@@ -111,8 +99,6 @@ The sigmoid function is applied to the dot product of the features and weights t
 These probabilities are then converted to binary predictions (0 or 1) by applying a threshold of 0.5 (if the probability is >= 0.5, the prediction is 1, else it's 0).
 ## 7. Example Usage
 ```python
-Copy
-Edit
 if __name__ == "__main__":
     # Example data (X: features, y: labels)
     X = np.array([[1, 2], [2, 3], [3, 4], [4, 5], [5, 6]])
